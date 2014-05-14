@@ -13,5 +13,19 @@
         android:layout_height="wrap_content"
         android:onClick="onSubmit"
         android:text="@string/submit_label" />
+<EditText
+   android:id="@+id/value"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/btnSubmit"
+    android:inputType="text"
+    />
+<TextView android:id="@+id/text"
+        android:layout_below="@id/btnSubmit"
+    android:layout_width="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:text="Hello, I am a TextView" />
 </RelativeLayout>
 
