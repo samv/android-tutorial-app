@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
-public class MainActivity extends Activity
+public class MainActivity extends Activity implements OnClickListener
 {
     /** Called when the activity is first created. */
     @Override
@@ -12,5 +12,13 @@ public class MainActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        Button submitButton = (Button)findViewById(R.id.btnSubmit);
+        button.setOnClickListener(this);
+    }
+
+    // Implement the OnClickListener callback
+    public void onClick(View v) {
+      // do something when the button is clicked
     }
 }
