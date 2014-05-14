@@ -2,7 +2,9 @@ package net.vilain.sam.todotut;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.LinearLayout;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 
 public class MainActivity extends Activity
 {
@@ -12,9 +14,6 @@ public class MainActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
-        Button submitButton = (Button)findViewById(R.id.btnSubmit);
-        button.setOnClickListener(this);
     }
 
     public void onSubmit(View v) {
