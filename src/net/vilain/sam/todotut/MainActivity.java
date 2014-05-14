@@ -19,6 +19,6 @@ public class MainActivity extends Activity
 
     public void onSubmit(View v) {
       // do something when the button is clicked
-        Toast.makeText(this, "Hello, world", Toast.LENGTH_SHORT);
+        Toast.makeText(this, "Hello, world", Toast.LENGTH_SHORT).show();
     }
 }
