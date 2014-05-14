@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 public class MainActivity extends Activity
 {
@@ -18,5 +19,6 @@ public class MainActivity extends Activity
 
     public void onSubmit(View v) {
       // do something when the button is clicked
+        Toast.makeText(this, "Hello, world", Toast.LENGTH_SHORT);
     }
 }
