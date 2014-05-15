@@ -3,4 +3,5 @@
   <string name="app_name">ToDoApp</string>
   <string name="add_item">Add</string>
   <string name="hint_add_item">add new task [...]</string>
+  <string name="help">Help!</string>
 </resources>
