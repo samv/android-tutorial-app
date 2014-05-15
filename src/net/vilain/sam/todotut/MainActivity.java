@@ -22,7 +22,8 @@ public class MainActivity extends Activity
     }
 
     public void onSubmit(View v) {
+        String fieldValue = etWords.getText().toString();
       // do something when the button is clicked
-        Toast.makeText(this, "Hello, world", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, fieldValue, Toast.LENGTH_SHORT).show();
     }
 }
