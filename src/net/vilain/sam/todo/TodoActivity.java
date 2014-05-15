@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -14,6 +15,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 import org.apache.commons.io.FileUtils;
+
+import net.vilain.sam.todo.EditActivity;
 
 public class TodoActivity extends Activity
 {
@@ -50,6 +53,10 @@ public class TodoActivity extends Activity
         Toast.makeText(this, "Item Added", Toast.LENGTH_SHORT).show();
     }
 
+    // boy, I thought 'let' in BASIC was a lot of guff.
+    // Java is really taking the cake here
+    private final int REQUEST_EDIT = 0;
+
     private void setupListViewListener() {
         lvTodoItems.setOnItemLongClickListener
             (new AdapterView.OnItemLongClickListener() {
@@ -61,6 +68,19 @@ public class TodoActivity extends Activity
                     itemsAdapter.notifyDataSetInvalidated();
                     saveItems();
                     return true;
+                }
+            });
+        lvTodoItems.setOnItemClickListener
+            (new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> aView,
+                                        View item, int position,
+                                        long id) {
+                    Intent i = new Intent(TodoActivity.this, EditActivity.class);
+                    int index = (int) id;
+                    i.putExtra("item_id", index);
+                    i.putExtra("item_text", items.get(index));
+                    startActivityForResult(i, REQUEST_EDIT);
                 }
             });
     }
@@ -87,4 +107,16 @@ public class TodoActivity extends Activity
             e.printStackTrace();
         }
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // REQUEST_CODE is defined above
+        if (resultCode == RESULT_OK && requestCode == REQUEST_EDIT) {
+            String new_value = data.getExtras().getString("item_text");
+            int id = data.getExtras().getInt("item_id");
+            items.set(id, new_value);
+            itemsAdapter.notifyDataSetInvalidated();
+            saveItems();
+        }
+    } 
 }
