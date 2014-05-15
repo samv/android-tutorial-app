@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">ToDoApp</string>
-  <string name="add_item">Add Item</string>
-  <string name="hint_add_item">add new task [due: when] [tag]</string>
+  <string name="add_item">Add</string>
+  <string name="hint_add_item">add new task [...]</string>
 </resources>
