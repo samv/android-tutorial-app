@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -25,11 +26,13 @@ public class TodoActivity extends Activity
 
         lvTodoItems = (ListView) findViewById(R.id.lvTodoItems);
         items = new ArrayList<String>();
-        itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        itemsAdapter = new ArrayAdapter<String>
+            (this, android.R.layout.simple_list_item_1, items);
         lvTodoItems.setAdapter(itemsAdapter);
         items.add("Write an app");
         items.add("?");
         items.add("Profit");
+        setupListViewListener();
     }
 
     @Override
@@ -43,5 +46,19 @@ public class TodoActivity extends Activity
         itemsAdapter.add(etNewItem.getText().toString());
         etNewItem.setText("");
         Toast.makeText(this, "Item Added", Toast.LENGTH_SHORT).show();
+    }
+
+    private void setupListViewListener() {
+        lvTodoItems.setOnItemLongClickListener
+            (new AdapterView.OnItemLongClickListener() {
+                @Override
+                public boolean onItemLongClick(AdapterView<?> aView,
+                                               View item, int pos,
+                                               long id) {
+                    items.remove(pos);
+                    itemsAdapter.notifyDataSetInvalidated();
+                    return true;
+                }
+            });
     }
 }
