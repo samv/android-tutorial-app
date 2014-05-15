@@ -27,14 +27,12 @@ public class TodoActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo);
 
+        readItems();
+
         lvTodoItems = (ListView) findViewById(R.id.lvTodoItems);
-        items = new ArrayList<String>();
         itemsAdapter = new ArrayAdapter<String>
             (this, android.R.layout.simple_list_item_1, items);
         lvTodoItems.setAdapter(itemsAdapter);
-        items.add("Write an app");
-        items.add("?");
-        items.add("Profit");
         setupListViewListener();
     }
 
@@ -48,6 +46,7 @@ public class TodoActivity extends Activity
         EditText etNewItem = (EditText) findViewById(R.id.etNewItem);
         itemsAdapter.add(etNewItem.getText().toString());
         etNewItem.setText("");
+        saveItems();
         Toast.makeText(this, "Item Added", Toast.LENGTH_SHORT).show();
     }
 
@@ -60,6 +59,7 @@ public class TodoActivity extends Activity
                                                long id) {
                     items.remove(pos);
                     itemsAdapter.notifyDataSetInvalidated();
+                    saveItems();
                     return true;
                 }
             });
