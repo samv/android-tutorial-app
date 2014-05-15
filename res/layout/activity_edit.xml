@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<TextView
+    android:id="@+id/tvEditTitle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:text="@string/title_edit_item"
+   />
+<EditText
+   android:id="@+id/etItem"
+   android:layout_below="@id/tvEditTitle"
+   android:layout_centerVertical="true"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"
+   android:inputType="textMultiLine"
+   android:hint="@string/hint_add_item"
+   >
+  <requestFocus />
+</EditText>
+<Button
+   android:id="@+id/btnSaveItem"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"
+   android:layout_alignParentLeft="true"
+   android:layout_below="@id/etItem"
+   android:onClick="saveItem"
+   android:text="@string/save_item"
+   />
+
+</RelativeLayout>
+
