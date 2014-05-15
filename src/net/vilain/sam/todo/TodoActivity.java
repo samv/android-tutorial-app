@@ -1,5 +1,7 @@
 package net.vilain.sam.todo;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -11,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+import org.apache.commons.io.FileUtils;
 
 public class TodoActivity extends Activity
 {
@@ -60,5 +63,28 @@ public class TodoActivity extends Activity
                     return true;
                 }
             });
+    }
+
+    private void readItems() {
+        File filesDir = getFilesDir();
+        File todoFile = new File(filesDir, "todo.txt");
+        try {
+            items = new ArrayList<String>(FileUtils.readLines(todoFile));
+        }
+        catch (IOException e) {
+            items = new ArrayList<String>();
+            e.printStackTrace();
+        }
+    }
+
+    private void saveItems() {
+        File filesDir = getFilesDir();
+        File todoFile = new File(filesDir, "todo.txt");
+        try {
+            FileUtils.writeLines(todoFile, items);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
