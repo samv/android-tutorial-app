@@ -1,36 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
     >
-<Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="96dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_height="wrap_content"
-        android:onClick="onSubmit"
-        android:text="@string/submit_label" />
-<EditText
-   android:id="@+id/etWords"
-    android:layout_width="wrap_content"
+<TextView
+    android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_above="@id/btnSubmit"
-   android:layout_marginBottom="40dp"
-    android:inputType="text"
-   android:hint="@string/enter_prompt"
+    android:text="Hello World, TodoActivity"
     />
-<TextView android:id="@+id/tvLabel"
-        android:layout_below="@id/btnSubmit"
-    android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_height="wrap_content"
-          android:layout_marginTop="31dp"
-        android:text="@string/nothing_label" />
-</RelativeLayout>
+</LinearLayout>
 

@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TODO Tutorial</string>
-    <string name="submit_label">Submit</string>
-    <string name="nothing_label">Nothing Yet</string>
-    <string name="enter_prompt">Enter Any Text</string>
+    <string name="app_name">TodoActivity</string>
 </resources>
