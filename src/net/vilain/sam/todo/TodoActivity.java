@@ -5,8 +5,11 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class TodoActivity extends Activity
 {
@@ -33,5 +36,12 @@ public class TodoActivity extends Activity
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.todo, menu);
         return true;
+    }
+
+    public void addNewTodoItem(View v) {
+        EditText etNewItem = (EditText) findViewById(R.id.etNewItem);
+        itemsAdapter.add(etNewItem.getText().toString());
+        etNewItem.setText("");
+        Toast.makeText(this, "Item Added", Toast.LENGTH_SHORT).show();
     }
 }
