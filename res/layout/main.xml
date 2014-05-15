@@ -14,7 +14,7 @@
         android:onClick="onSubmit"
         android:text="@string/submit_label" />
 <EditText
-   android:id="@+id/value"
+   android:id="@+id/etWords"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -24,7 +24,7 @@
     android:inputType="text"
    android:hint="@string/enter_prompt"
     />
-<TextView android:id="@+id/text"
+<TextView android:id="@+id/tvLabel"
         android:layout_below="@id/btnSubmit"
     android:layout_width="wrap_content"
         android:layout_centerHorizontal="true"
