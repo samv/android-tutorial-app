@@ -18,6 +18,7 @@ public class MainActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        etWords = (EditText)findViewById(R.id.etWords);
     }
 
     public void onSubmit(View v) {
